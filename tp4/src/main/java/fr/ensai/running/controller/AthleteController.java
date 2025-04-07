@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import fr.ensai.running.model.Athlete;
 import fr.ensai.running.service.AthleteService;
 
-@Controller
-@RequestMapping("/athlete")
+@Controller //pour transformer une requête html en java
+@RequestMapping("/athlete") //pour dire que toutes les commandes commençant par /athlete viennent taper dans ce controller là
 public class AthleteController {
 
     @Autowired
-    private AthleteService athleteService;
+    private AthleteService athleteService; //fait appel à ce service là
 
     /**
      * Display all Athletes
@@ -31,7 +31,7 @@ public class AthleteController {
     /**
      * Redirection to the add form
      */
-    @GetMapping("/addNew")
+    @GetMapping("/addNew") //quand il y a /athlete/addNew, c'est cette fonction qui est appliquée
     public String addNewAthlete(Model model) {
         Athlete athlete = new Athlete();
         model.addAttribute("athlete", athlete);
